@@ -12,7 +12,7 @@ public class JwttUtil {
 
     private static String KEY_STRING = "AAAABBBBBBBBDCCCCC";//key
 
-    private static Long TTLMILLIS = 1000 * 60l;//TTL
+    private static Long TTLMILLIS = 1000 * 60l *60;//TTL
 
     public static String createJwt(String userId,String role){
         SignatureAlgorithm sa = SignatureAlgorithm.HS256;
@@ -38,7 +38,8 @@ public class JwttUtil {
         return c;
     }
 
-    public static void main(String[] args) {
-        System.out.println(parseJwt(createJwt("userId", "role")));
-    }
+	/*
+	 * public static void main(String[] args) {
+	 * System.out.println(createJwt("userId", "role")); }
+	 */
 }

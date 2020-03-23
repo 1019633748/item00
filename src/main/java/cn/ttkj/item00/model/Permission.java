@@ -5,17 +5,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
-@Data
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
+@GenericGenerator(name="jpa-uuid",strategy="org.hibernate.id.UUIDGenerator")
 public class Permission {
 	
 	@Id
 	@GeneratedValue(generator = "jpa-uuid")
 	@Column(columnDefinition = "varchar(32)")
-    private String id;
-    
-    @Column
+	private String id;
 	private String name;
 }

@@ -11,18 +11,21 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
-import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
-@Data
+@GenericGenerator(name="jpa-uuid",strategy="org.hibernate.id.UUIDGenerator")
 public class Role{
 	
 	@Id
 	@GeneratedValue(generator = "jpa-uuid")
 	@Column(columnDefinition = "varchar(32)")
-    private String id;
-    
-    @Column
+	private String id;
 	private String name;
 	
 	@ManyToMany(fetch=FetchType.EAGER)

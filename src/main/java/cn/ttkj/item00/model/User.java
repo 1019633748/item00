@@ -16,11 +16,13 @@ import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @Entity
-@GenericGenerator(name="jpa-uuid",strategy="uuid")
+@GenericGenerator(name="jpa-uuid",strategy="org.hibernate.id.UUIDGenerator")
 public class User{
 
     @Id
